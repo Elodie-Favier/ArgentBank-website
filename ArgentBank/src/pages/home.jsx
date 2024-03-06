@@ -1,12 +1,13 @@
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import Header from '../components/Header';
+import MainHome from '../components/mainHomePage/MainHome';
+
 
 const Home = () => {
     return (
         <div>
-      <h1>Home page</h1>
+     <MainHome/>
         </div>
     );
 };

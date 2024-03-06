@@ -1,10 +1,16 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import Nav from './Nav';
+import '../../styles/main.css';
+
+
+
+
 
 const Header = () => {
     return (
-        <div>
-            <h1>Header compo</h1>
+        <div className='header'>
+           <Nav/>
         </div>
     );
 };
