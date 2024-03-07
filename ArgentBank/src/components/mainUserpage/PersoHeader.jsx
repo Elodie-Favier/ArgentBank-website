@@ -4,7 +4,7 @@ import '../../styles/main.css';
 const PersoHeader = () => {
     return (
         <div className='header'>
-            <h1>Welcome back
+            <h1 className='header-title'>Welcome back
             <br/>
             "Max la menace"
             </h1>

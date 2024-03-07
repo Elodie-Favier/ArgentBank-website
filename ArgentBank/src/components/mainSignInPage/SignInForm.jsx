@@ -18,7 +18,7 @@ const SignInForm = () => {
         </div>
       
         {/* <a href="./user.html" className="sign-in-button">Sign In</a> */}
-      <Link to='/user'>
+      <Link className='sign-in-link' to='/user'>
         <button className="sign-in-button">Sign In</button> 
         </Link>
        

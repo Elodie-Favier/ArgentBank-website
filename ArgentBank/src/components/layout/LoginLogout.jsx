@@ -9,8 +9,8 @@ const LoginLogout = () => {
     return (
         <div className='main-nav-item'>
             <Link className='main-nav-item' to='/signIn'>
-            <FontAwesomeIcon  icon={faCircleUser} />
-            <FontAwesomeIcon icon={faRightFromBracket}/>
+            <FontAwesomeIcon className='main-nav-item' icon={faCircleUser} />
+            <FontAwesomeIcon className='icon-logout main-nav-item' icon={faRightFromBracket}/>
                 Sign In
             </Link>
         </div>

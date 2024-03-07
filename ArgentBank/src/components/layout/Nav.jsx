@@ -8,24 +8,20 @@ import '../../styles/main.css';
 
 const Nav = () => {
     return (
-        <div className='main-nav'>
+        <nav className='main-nav'>
             <NavLink
                 to='/'
                 >
-                <div>
-                    <Logo/>
-                </div>
+                <Logo/>
                 </NavLink>
                 <NavLink
                 to='/signIn'>
-                    <div>
-                        <LoginLogout/>
-                    </div>
+                <LoginLogout/>
                 </NavLink>
             
 
             
-        </div>
+        </nav>
     );
 };
 

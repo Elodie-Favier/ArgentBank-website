@@ -6,9 +6,9 @@ import MainHome from '../components/mainHomePage/MainHome';
 
 const Home = () => {
     return (
-        <div>
+     
      <MainHome/>
-        </div>
+        
     );
 };
 
