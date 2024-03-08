@@ -16,7 +16,7 @@ const SignInForm = () => {
         <div className="input-remember">
           <input type="checkbox" id="remember-me" /><label for="remember-me">Remember me</label>
         </div>
-      
+        <span className="error-login">Identifiant ou mot de passe incorrect</span>
         {/* <a href="./user.html" className="sign-in-button">Sign In</a> */}
       <Link className='sign-in-link' to='/user'>
         <button className="sign-in-button">Sign In</button> 
