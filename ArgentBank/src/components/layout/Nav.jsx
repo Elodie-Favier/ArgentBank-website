@@ -7,20 +7,11 @@ import '../../styles/main.css';
 
 
 const Nav = () => {
+
     return (
         <nav className='main-nav'>
-            <NavLink
-                to='/'
-                >
-                <Logo/>
-                </NavLink>
-                <NavLink
-                to='/signIn'>
-                <LoginLogout/>
-                </NavLink>
-            
-
-            
+            <Logo/>
+            <LoginLogout/>
         </nav>
     );
 };

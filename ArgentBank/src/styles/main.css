@@ -40,6 +40,7 @@ body {
 .error-login {
   color: red;
   margin: 10px;
+  display: none;
 }
 .main {
   flex: 1;
@@ -83,13 +84,18 @@ body {
 .main-nav-item {
   text-decoration: none;
   margin-right: 0.5rem;
+  display: flex;
+  flex-direction: row;
 }
 
 .main-nav-item:hover {
   text-decoration: underline;
 }
+/* .user-name-connected {
+  padding: 10px;
+} */
 .icon-logout {
-  display: none;
+  display: block;
 }
 .main-nav-logo {
   display: flex;
