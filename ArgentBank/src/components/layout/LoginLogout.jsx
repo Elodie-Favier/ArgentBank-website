@@ -6,11 +6,24 @@ import {faCircleUser} from '@fortawesome/free-solid-svg-icons'
 import {faRightFromBracket} from '@fortawesome/free-solid-svg-icons'
 import { useDispatch, useSelector } from 'react-redux';
 import { loginActions } from '../../slice/login.slice';
+import { useEffect } from 'react';
+import { postUserData } from '../../actions/user.actions';
 
 
 const LoginLogout = () => {
-const dispatch = useDispatch()
+    const dispatch = useDispatch()
     const isLoggedIn = useSelector((state) => state.login.isLoggedIn)
+    const login = useSelector((state) => state.login.dataResponse)
+
+    useEffect(() => {
+        if(isLoggedIn) {
+          dispatch(postUserData(login.token))  
+        }
+    }, [login.token, isLoggedIn, dispatch])
+    
+    const user = useSelector((state) => state.userData.userDataResponse)
+
+
     const logoutHandler = () => {
         dispatch(loginActions.logout())
     }
@@ -18,7 +31,7 @@ const dispatch = useDispatch()
     return (
             <div className='main-nav-item'>
             <FontAwesomeIcon className='main-nav-item' icon={faCircleUser} />
-            {!isLoggedIn? <Link to='/signIn'>Sign In</Link> : <><div className='main-nav-item user-name-connected'><Navigate to='/user'>toto</Navigate></div><> <Link onClick={logoutHandler} to='/signIn'>Sign Out
+            {!isLoggedIn? <Link to='/signIn'>Sign In</Link> : <><div className='main-nav-item user-name-connected'>{user.userName}<Navigate to='/user'></Navigate></div><> <Link onClick={logoutHandler} to='/signIn'>Sign Out
                 <FontAwesomeIcon className='icon-logout main-nav-item' icon={faRightFromBracket} /></Link></></>
         }
 
