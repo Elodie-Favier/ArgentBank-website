@@ -22,7 +22,7 @@ export const postFetchLoginSuccess = (credential) => {
         };
         try{
             const data = await fetchPostData()
-            console.log(data.body);
+            // console.log(data.body);
             dispatch(loginActions.postLogin(data.body))
         }
         catch(error) {
