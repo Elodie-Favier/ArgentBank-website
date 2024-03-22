@@ -31,7 +31,8 @@ const LoginLogout = () => {
     return (
             <div className='main-nav-item'>
             <FontAwesomeIcon className='main-nav-item' icon={faCircleUser} />
-            {!isLoggedIn? <Link to='/signIn'>Sign In</Link> : <><div className='main-nav-item user-name-connected'>{user.firstName}<Navigate to='/user'></Navigate></div><> <Link onClick={logoutHandler} to='/home'>Sign Out
+            {!isLoggedIn? 
+            <Link to='/signIn'>Sign In</Link> : <><div className='main-nav-item user-name-connected'>{user.firstName}<Navigate to='/user'></Navigate></div><> <Link onClick={logoutHandler} to='/home'>Sign Out
                 <FontAwesomeIcon className='icon-logout main-nav-item' icon={faRightFromBracket} /></Link></></>
         }
 
