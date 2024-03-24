@@ -32,3 +32,33 @@ try {
     }
 
 }
+
+export const putNewUserName = (token, newUserName ) => {
+    return async (dispatch) => {
+        const fetchPutNewUserName = async () => {
+            const response = await fetch('http://localhost:3001/api/v1/user/profile', {
+                method:'PUT',
+                headers:{
+                    'Content-Type':'application/json',
+                    Authorization: `Bearer ${token}`,
+                },
+                body:JSON.stringify(newUserName)
+            });
+            const dataRes = await response.json();
+            if(!response.ok){
+                throw new Error('pb pour envoyer le nouveau pseudo au serveur')
+            }
+            return dataRes
+        }
+        try {
+            const dataUserName = await fetchPutNewUserName();
+            console.log(dataUserName.body);
+            dispatch(userDataActions.putNewUserName(dataUserName.body));
+
+        } catch (error) {
+            console.log('error new user Name request');
+            console.log(error);
+        }
+    }
+
+}

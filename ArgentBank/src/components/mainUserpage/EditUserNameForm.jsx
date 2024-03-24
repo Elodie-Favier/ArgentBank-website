@@ -1,27 +1,58 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import '../../styles/main.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { postUserData } from '../../actions/user.actions';
+import { postUserData, putNewUserName } from '../../actions/user.actions';
 
 const EditUserNameForm = () => {
     const dispatch = useDispatch()
     const userNameInputRef = useRef()
     const login = useSelector((state) => state.login.dataResponse)
     const isLoggedIn = useSelector((state) => state.login.isLoggedIn)
+    const modification = useSelector((state) => state.userData.modification)
     const user = useSelector((state) => state.userData.userDataResponse)
+    const [error, setError] = useState(null)
     useEffect(() => {
         if(isLoggedIn) {
           dispatch(postUserData(login.token))  
         }
     }, [login.token, isLoggedIn, dispatch])
 
+const handleFormEditUserName = (event) => {
+    event.preventDefault();
+    const enteredUserName = userNameInputRef.current.value
+    if (
+        enteredUserName.trim().length === 0 ) 
+  {
+    setError({message:'Erreur username or password'});
+    return;
+    }
+    // console.log(enteredUserName)
+
+    const newUserName = {
+        userName:enteredUserName
+    }
+    console.log(newUserName)
+    // envoi requete put new userName
+    dispatch(putNewUserName(login.token, newUserName))
+    // if(modification)
+    
+}
+// useEffect(() => {
+//     if(modification){
+//         dispatch(putNewUserName(login.token, newUserName))
+//     }
+// }), [login.token, modification, dispatch]
+
     return (
+        <div className="header-edit-username">
         <section className="edit-username-content">
-        <form id='edit-Name-Form' >
+        <h1 className='edit-username-title'>Edit user info</h1>
+
+        <form onSubmit={handleFormEditUserName} id='edit-Name-Form' >
 
         <div className="input-wrapper">
-            <label ref={userNameInputRef} htmlFor="username">User name :</label>
-            <input type="text" id="username" required minLength="3" maxLength="20" placeholder={user.userName} name="username"/>
+            <label htmlFor="username">User name :</label>
+            <input type="text" ref={userNameInputRef} id="username" required minLength="3" maxLength="20" placeholder={user.userName} name="username"/>
         </div>
         <div className="input-wrapper">
             <label htmlFor="firstname">First name :</label>
@@ -38,6 +69,7 @@ const EditUserNameForm = () => {
         </div>
         </form>
         </section>
+        </div>
     );
 };
 

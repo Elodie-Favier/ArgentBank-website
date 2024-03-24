@@ -301,7 +301,9 @@ body {
   padding: 10px;
 }
 /* section du formulaire pour changer le pseudo */
-
+.edit-username-title {
+  color: black;
+}
 .edit-username-content {
   display: block;
   box-sizing: border-box;
