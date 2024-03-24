@@ -19,6 +19,10 @@ const userDataSlice = createSlice({
     reducers:{
         postUserData(state, action){
             state.userDataResponse = action.payload
+        },
+        putNewUserName(state, action){
+            state.userDataResponse = action.payload
+            state.modification = false
         }
       
         // afficher les données 

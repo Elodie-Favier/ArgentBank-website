@@ -13,23 +13,10 @@ const App = () => {
   return (
   <>
    <Routes>
-    {
-      !isLoggedIn? (
-        <>
         <Route path='/' element={<Home/>}></Route>
         <Route path='/signIn' element={<SignIn/>}></Route>
-        <Route path='*' element={<Home/>}></Route>
-        </>
-      ) :(
-        <>
-        
-        {/* <Route path='/signIn' element={<SignIn/>}></Route> */}
         <Route path='/user' element={<User/>}></Route>
-        <Route path='/' element={<Home/>}></Route>
         <Route path='*' element={<Home/>}></Route>
-        </>
-        )
-    }
    </Routes>
    </>
   )
