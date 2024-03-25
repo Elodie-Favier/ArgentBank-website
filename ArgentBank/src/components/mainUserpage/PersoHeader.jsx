@@ -3,6 +3,7 @@ import '../../styles/main.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { postUserData } from '../../actions/user.actions';
 import EditUserNameForm from './EditUserNameForm';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -12,6 +13,7 @@ const PersoHeader = () => {
     const isLoggedIn = useSelector((state) => state.login.isLoggedIn)
     const login = useSelector((state) => state.login.dataResponse)
     const modification = useSelector((state) => state.userData.modification)
+    const navigate = useNavigate()
     useEffect(() => {
         if(isLoggedIn) {
           dispatch(postUserData(login.token))  
@@ -39,18 +41,24 @@ const PersoHeader = () => {
     return (
         <div className='header'>
             <div className="header-welcome-message">
-          {!showForm? <h1 className='header-title'>Welcome back
+         <h1 className='header-title'>Welcome back
             <br/>
             {user.userName}
-            </h1> : ""} 
+            </h1>  
             
            
-            <button onClick={() => setShowForm(!showForm)} style={showForm? btnStyleNone : btnStyleBlock} className='edit-button'>Edit Name</button>
+            <button onClick={() => setShowForm(!showForm) } className='edit-button'> 
+            {showForm? navigate('/userEdit')  : ""}
+
+            Edit Name</button>
             </div>
-            {showForm? <EditUserNameForm/>  : ""}
+            
             
         </div>
     );
 };
 
 export default PersoHeader;
+
+
+// style={showForm? btnStyleNone : btnStyleBlock

@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import '../../styles/main.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { postUserData, putNewUserName } from '../../actions/user.actions';
+import { useNavigate } from 'react-router-dom';
 
 const EditUserNameForm = () => {
     const dispatch = useDispatch()
@@ -35,15 +36,17 @@ const handleFormEditUserName = (event) => {
     // envoi requete put new userName
     dispatch(putNewUserName(login.token, newUserName))
     // if(modification)
-    
+    navigate('/user')
 }
-// useEffect(() => {
-//     if(modification){
-//         dispatch(putNewUserName(login.token, newUserName))
-//     }
-// }), [login.token, modification, dispatch]
 
-    return (
+
+const navigate = useNavigate()
+const OnCancel = (e) => {
+    e.preventDefault()
+    // console.log('do not submit');
+    navigate('/user')
+ }   
+  return (
         <div className="header-edit-username">
  <h1 className='edit-username-title'>Edit user info</h1>
         <section className="edit-username-content">
@@ -65,8 +68,8 @@ const handleFormEditUserName = (event) => {
             <input type="text" id="lastname" disabled className='input-disabled' placeholder={user.lastName} name="lastname"/>
        </div>
         <div className="button-wrapper">
-        <button className='edit-button'>Save</button>
-        <button className='edit-button'>Cancel</button>
+        <button type='submit' className='edit-button'>Save</button>
+        <button onClick={OnCancel} type='button' className='edit-button'>Cancel</button>
         </div>
         </form>
         </section>

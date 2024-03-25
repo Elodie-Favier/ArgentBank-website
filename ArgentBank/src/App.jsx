@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import User from './pages/User';
 import { useSelector } from 'react-redux';
+import UserEdit from './pages/UserEdit';
 
 
 
@@ -16,6 +17,7 @@ const App = () => {
         <Route path='/' element={<Home/>}></Route>
         <Route path='/signIn' element={<SignIn/>}></Route>
         <Route path='/user' element={<User/>}></Route>
+        <Route path='/userEdit' element={<UserEdit/>}></Route>
         <Route path='*' element={<Home/>}></Route>
    </Routes>
    </>
