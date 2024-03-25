@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { postUserData } from '../../actions/user.actions';
 import EditUserNameForm from './EditUserNameForm';
 
+
+
 const PersoHeader = () => {
     // 
     const dispatch = useDispatch()
@@ -24,17 +26,29 @@ const PersoHeader = () => {
 
         const user = useSelector((state) => state.userData.userDataResponse)
         const [showForm, setShowForm] = useState(false);
-    
+        const btnStyleNone = {
+            display:'none'
+        }
+      const btnStyleBlock = {
+        borderColor: '#00bc77',
+        backgroundColor: '#00bc77',
+        color: '#fff',
+        fontWeight: 'bold',
+        padding: '10px',
+      }
     return (
         <div className='header'>
-            <h1 className='header-title'>Welcome back
+            <div className="header-welcome-message">
+          {!showForm? <h1 className='header-title'>Welcome back
             <br/>
             {user.userName}
-            </h1>
-            <button onClick={() => setShowForm(!showForm)}  className='edit-button'>Edit Name</button>
-        
-        {showForm? <EditUserNameForm /> : ""}
-   
+            </h1> : ""} 
+            
+           
+            <button onClick={() => setShowForm(!showForm)} style={showForm? btnStyleNone : btnStyleBlock} className='edit-button'>Edit Name</button>
+            </div>
+            {showForm? <EditUserNameForm/>  : ""}
+            
         </div>
     );
 };

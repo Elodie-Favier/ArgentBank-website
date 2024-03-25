@@ -15,9 +15,7 @@ const SignInForm = () => {
   const navigate = useNavigate()
   const emailInputRef = useRef()
   const passwordInputRef = useRef()
-  
   const [error, setError] = useState(null)
-
   const dispatch = useDispatch()
   
   
@@ -56,9 +54,6 @@ const SignInForm = () => {
         <div className="input-remember">
           <input type="checkbox" id="remember-me" /><label htmlFor="remember-me">Remember me</label>
         </div>
-        
-
-        {/* <Link className='sign-in-link' to='/user'>    </Link> */}
          
           <button className="sign-in-button">
         

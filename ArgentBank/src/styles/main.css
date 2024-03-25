@@ -302,7 +302,7 @@ body {
 }
 /* section du formulaire pour changer le pseudo */
 .edit-username-title {
-  color: black;
+  color: white;
 }
 .edit-username-content {
   display: block;
@@ -346,7 +346,18 @@ body {
 .header {
   color: #fff;
   margin-bottom: 2rem;
+  /* position: relative;
+  height: 3em;
+  z-index: 1; */
 }
+/* .header-welcome-message {
+  position: absolute;
+  z-index: 2;
+} */
+/* .header-edit-username {
+  position: absolute;
+  z-index: 3;
+} */
 .header-title {
   font-size: 2.1rem;
 }

@@ -45,8 +45,9 @@ const handleFormEditUserName = (event) => {
 
     return (
         <div className="header-edit-username">
+ <h1 className='edit-username-title'>Edit user info</h1>
         <section className="edit-username-content">
-        <h1 className='edit-username-title'>Edit user info</h1>
+       
 
         <form onSubmit={handleFormEditUserName} id='edit-Name-Form' >
 

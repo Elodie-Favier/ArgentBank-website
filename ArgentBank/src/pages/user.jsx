@@ -9,6 +9,7 @@ import Footer from '../components/layout/Footer';
 
 const User = () => {
   
+
     return (
         <>
         <Nav/>
