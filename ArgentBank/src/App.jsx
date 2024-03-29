@@ -3,22 +3,20 @@ import './styles/main.css';
 import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import User from './pages/User';
-import { useSelector } from 'react-redux';
+
 import UserEdit from './pages/UserEdit';
 
 
-
-
 const App = () => {
-  const isLoggedIn = useSelector((state) => state.login.isLoggedIn)
-  return (
+  
+     return( 
   <>
    <Routes>
-        <Route path='/' element={<Home/>}></Route>
-        <Route path='/signIn' element={<SignIn/>}></Route>
-        <Route path='/user' element={<User/>}></Route>
-        <Route path='/userEdit' element={<UserEdit/>}></Route>
-        <Route path='*' element={<Home/>}></Route>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/signIn' element={<SignIn/>}/>
+        <Route path='/user' element={<User/>}/>
+        <Route path='/userEdit' element={<UserEdit/>}/>
+        <Route path='*' element={<Home/>}/>
    </Routes>
    </>
   )

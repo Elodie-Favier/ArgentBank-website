@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../../styles/main.css';
 import { Navigate, useNavigate } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 // REDUX
 
 import {useDispatch, useSelector} from 'react-redux'
@@ -12,12 +12,24 @@ import { postFetchLoginSuccess } from '../../actions/login.actions';
 const SignInForm = () => {
 
   const isLoggedIn = useSelector((state) => state.login.isLoggedIn)
+  const isError = useSelector((state)=> state.login.errorFetch)
+  const errorMessage = useSelector((state) => state.login.dataResponse)
   const navigate = useNavigate()
   const emailInputRef = useRef()
   const passwordInputRef = useRef()
   const [error, setError] = useState(null)
   const dispatch = useDispatch()
+  useEffect(() =>{
+if(isLoggedIn) {
+  navigate("/user")
+} else;
+if (isError) {
+
+}
   
+
+
+  },[isLoggedIn])
   
   const handleForm = (event) => {
     event.preventDefault();
@@ -25,21 +37,21 @@ const SignInForm = () => {
     const enteredPassword = passwordInputRef.current.value
     if (
         enteredEmail.trim().length === 0 || enteredPassword.trim().length === 0) 
-  {
-    setError({message:'Erreur username or password'});
-    return;
-    }
+          {
+            setError({message:'Identifiants incorrects'});
+            return;
+            }
+            
     const credential = {
       email : enteredEmail,
       password : enteredPassword,
     }
     // envoi requête login
     dispatch(postFetchLoginSuccess(credential))
-    if (isLoggedIn) {
-      navigate("/user")
-    } return
-    // form.current.reset()
+    
   }
+
+  // | form.current.reset()
 
     return (
         <form onSubmit={handleForm}>
@@ -54,11 +66,10 @@ const SignInForm = () => {
         <div className="input-remember">
           <input type="checkbox" id="remember-me" /><label htmlFor="remember-me">Remember me</label>
         </div>
-         
-          <button className="sign-in-button">
-        
-            Sign In</button>
-           
+        {isError? <span className="error-login">{errorMessage.message}</span> : ""  }
+       
+        <button className="sign-in-button">Sign In</button>
+       
      
       </form>
     );

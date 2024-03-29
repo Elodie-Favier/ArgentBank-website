@@ -28,16 +28,11 @@ const PersoHeader = () => {
 
         const user = useSelector((state) => state.userData.userDataResponse)
         const [showForm, setShowForm] = useState(false);
-        const btnStyleNone = {
-            display:'none'
-        }
-      const btnStyleBlock = {
-        borderColor: '#00bc77',
-        backgroundColor: '#00bc77',
-        color: '#fff',
-        fontWeight: 'bold',
-        padding: '10px',
-      }
+        
+      useEffect(() => {
+        if(showForm) navigate('/userEdit')
+      }, [])
+      
     return (
         <div className='header'>
             <div className="header-welcome-message">

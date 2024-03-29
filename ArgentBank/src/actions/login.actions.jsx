@@ -16,7 +16,10 @@ export const postFetchLoginSuccess = (credential) => {
 
             if(!response.ok){
                 dispatch(loginActions.errorFetch(dataResponse))
-                throw new Error ("pb pour send donnée vers le serveur")
+                console.log(dataResponse.status);
+                console.log(dataResponse.message);
+                
+                throw new Error ("Impossible d'envoyer les données vers le serveur")
             }
             return dataResponse;
         };
@@ -24,10 +27,11 @@ export const postFetchLoginSuccess = (credential) => {
             const data = await fetchPostData()
             // console.log(data.body);
             dispatch(loginActions.postLogin(data.body))
+            
         }
         catch(error) {
-        console.log('-----> dans le catch error fetchPost Data');
-        console.log(error);
+        // console.log('-----> dans le catch error fetchPost Data');
+        // console.log(error);
 }
     }
 }
