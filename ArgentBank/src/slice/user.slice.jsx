@@ -24,8 +24,6 @@ const userDataSlice = createSlice({
             state.userDataResponse = action.payload
             state.modification = false
         }
-      
-        // afficher les données 
     }
 })
 

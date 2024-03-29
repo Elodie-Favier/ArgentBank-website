@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import '../../styles/main.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { postUserData } from '../../actions/user.actions';
-import EditUserNameForm from './EditUserNameForm';
 import { useNavigate } from 'react-router-dom';
 
 

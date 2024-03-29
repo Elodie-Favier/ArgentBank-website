@@ -9,9 +9,8 @@ const EditUserNameForm = () => {
     const userNameInputRef = useRef()
     const login = useSelector((state) => state.login.dataResponse)
     const isLoggedIn = useSelector((state) => state.login.isLoggedIn)
-    const modification = useSelector((state) => state.userData.modification)
     const user = useSelector((state) => state.userData.userDataResponse)
-    const [error, setError] = useState(null)
+  
     useEffect(() => {
         if(isLoggedIn) {
           dispatch(postUserData(login.token))  
@@ -21,21 +20,15 @@ const EditUserNameForm = () => {
 const handleFormEditUserName = (event) => {
     event.preventDefault();
     const enteredUserName = userNameInputRef.current.value
-    if (
-        enteredUserName.trim().length === 0 ) 
-  {
-    setError({message:'Erreur username or password'});
-    return;
-    }
     // console.log(enteredUserName)
 
     const newUserName = {
         userName:enteredUserName
     }
-    console.log(newUserName)
+    
     // envoi requete put new userName
     dispatch(putNewUserName(login.token, newUserName))
-    // if(modification)
+   
     navigate('/user')
 }
 
@@ -43,7 +36,7 @@ const handleFormEditUserName = (event) => {
 const navigate = useNavigate()
 const OnCancel = (e) => {
     e.preventDefault()
-    // console.log('do not submit');
+  
     navigate('/user')
  }   
   return (

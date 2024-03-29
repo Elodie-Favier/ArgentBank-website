@@ -1,6 +1,6 @@
 
 import '../../styles/main.css';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCircleUser} from '@fortawesome/free-solid-svg-icons'
 import {faRightFromBracket} from '@fortawesome/free-solid-svg-icons'

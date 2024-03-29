@@ -16,7 +16,7 @@ const fetchPostUserData = async () => {
     })
     const dataResponse = await response.json()
     if(!response.ok){
-        throw new Error('pb pour recupérer les données sur le serveur')
+        throw new Error('pb pour obtenir les données sur le serveur')
     }
     return dataResponse
 }
@@ -26,8 +26,7 @@ try {
     
     dispatch(userDataActions.postUserData(userData.body))
 } catch(error){
-    console.log("error post");
-    console.log(error);
+    
 }
     }
 
@@ -52,7 +51,7 @@ export const putNewUserName = (token, newUserName ) => {
         }
         try {
             const dataUserName = await fetchPutNewUserName();
-            console.log(dataUserName.body);
+            
             dispatch(userDataActions.putNewUserName(dataUserName.body));
 
         } catch (error) {

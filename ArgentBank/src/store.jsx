@@ -9,4 +9,5 @@ export const store = configureStore({
       userData:userDataSlice.reducer
     },
     devTools:true,
+    // mettre sur false en cas de mise en prod
   })

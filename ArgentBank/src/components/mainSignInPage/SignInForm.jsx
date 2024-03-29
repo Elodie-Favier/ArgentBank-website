@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../../styles/main.css';
-import { Navigate, useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 // REDUX
 
 import {useDispatch, useSelector} from 'react-redux'
@@ -35,12 +35,12 @@ if (isError) {
     event.preventDefault();
     const enteredEmail = emailInputRef.current.value
     const enteredPassword = passwordInputRef.current.value
-    if (
-        enteredEmail.trim().length === 0 || enteredPassword.trim().length === 0) 
-          {
-            setError({message:'Identifiants incorrects'});
-            return;
-            }
+    // if (
+    //     enteredEmail.trim().length === 0 || enteredPassword.trim().length === 0) 
+    //       {
+    //         setError({message:'Identifiants incorrects'});
+    //         return;
+    //         }
             
     const credential = {
       email : enteredEmail,
@@ -66,6 +66,7 @@ if (isError) {
         <div className="input-remember">
           <input type="checkbox" id="remember-me" /><label htmlFor="remember-me">Remember me</label>
         </div>
+        
         {isError? <span className="error-login">{errorMessage.message}</span> : ""  }
        
         <button className="sign-in-button">Sign In</button>

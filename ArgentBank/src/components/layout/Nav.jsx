@@ -1,9 +1,7 @@
 
 import Logo from './Logo';
 import LoginLogout from './LoginLogout';
-import { NavLink } from 'react-router-dom';
 import '../../styles/main.css';
-
 
 
 const Nav = () => {

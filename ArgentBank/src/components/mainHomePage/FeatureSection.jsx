@@ -31,8 +31,6 @@ const FeatureSection = () => {
             <section className="features">
                 <h2 className="sr-only">Features</h2>
                 {dataFeature.map(({id, src, alt, title, content}) => <FeatureItem key={id} src={src} alt={alt} title={title} content={content} /> )
-
-
                 }
                 
             </section>

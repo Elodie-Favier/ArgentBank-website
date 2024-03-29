@@ -3,7 +3,6 @@ import './styles/main.css';
 import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import User from './pages/User';
-
 import UserEdit from './pages/UserEdit';
 
 
@@ -24,14 +23,3 @@ const App = () => {
 
 export default App;
 
-// const App = () => {
-//   return (
-//   <>
-//    <Nav/>
-//    <Outlet/>
-//    <Footer/>
-//    </>
-//   )
-// };
-
-// export default App;

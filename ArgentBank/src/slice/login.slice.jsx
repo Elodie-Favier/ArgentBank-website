@@ -8,9 +8,7 @@ dataResponse:{
 },
 isLoggedIn:false,
 errorFetch: false,
-// isLoading:false;pour le spinner si besoin
 }
-// dans les reducers on y met : log , pour stocker dans localStorage, se delogger, gestion erreur, reset erreur; spinner ?
 
 const loginSlice = createSlice({
     name:"login",
@@ -18,7 +16,6 @@ const loginSlice = createSlice({
     reducers: {
         postLogin(state,action){
             state.dataResponse = action.payload
-            // state.IsLoading = false spinner
             localStorage.setItem('token', state.dataResponse.token)
 
             if(state.dataResponse.token) {
