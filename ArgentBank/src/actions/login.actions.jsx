@@ -2,7 +2,7 @@
 
 import { loginActions } from "../slice/login.slice";
 
-export const postFetchLoginSuccess = (credential) => {
+export const postFetchLogin = (credential, checkbox) => {
     return async (dispatch) => {
         const fetchPostData = async () =>{
             const response = await fetch("http://localhost:3001/api/v1/user/login", {
@@ -24,6 +24,12 @@ export const postFetchLoginSuccess = (credential) => {
         try{
             const data = await fetchPostData()
             // console.log(data.body);
+            const token = data.body.token
+            if(checkbox){
+                localStorage.setItem("token", token)
+            } else {
+                sessionStorage.setItem("token", token)
+            } 
             dispatch(loginActions.postLogin(data.body))
             
         }

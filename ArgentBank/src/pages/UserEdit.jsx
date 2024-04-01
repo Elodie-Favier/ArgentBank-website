@@ -1,9 +1,9 @@
 import React from 'react';
-import EditUserNameForm from '../components/mainUserpage/EditUserNameForm';
+import EditUserNameForm from '../components/mainUserEditPage/EditUserNameForm';
 import Nav from '../components/layout/Nav';
 import Footer from '../components/layout/Footer';
-import Account from '../components/mainUserpage/AccountEditUserPage';
-import AccountEditUserPage from '../components/mainUserpage/AccountEditUserPage';
+import AccountEditUserPage from '../components/mainUserEditPage/AccountEditUserPage';
+
 
 
 const UserEdit = () => {

@@ -8,6 +8,7 @@ dataResponse:{
 },
 isLoggedIn:false,
 errorFetch: false,
+checkbox:false,
 }
 
 const loginSlice = createSlice({
@@ -16,7 +17,7 @@ const loginSlice = createSlice({
     reducers: {
         postLogin(state,action){
             state.dataResponse = action.payload
-            localStorage.setItem('token', state.dataResponse.token)
+            // localStorage.setItem('token', state.dataResponse.token)
 
             if(state.dataResponse.token) {
                 state.isLoggedIn = true
@@ -31,7 +32,8 @@ const loginSlice = createSlice({
             state.dataResponse = {
                 token:null
             };
-            localStorage.clear();
+            localStorage.removeItem('token');
+            sessionStorage.removeItem('token');
             state.isLoggedIn = false;
         }
     }

@@ -5,9 +5,7 @@ import { useNavigate } from 'react-router-dom';
 // REDUX
 
 import {useDispatch, useSelector} from 'react-redux'
-import { postFetchLoginSuccess } from '../../actions/login.actions';
-
-
+import { postFetchLogin } from '../../actions/login.actions';
 
 const SignInForm = () => {
 
@@ -17,41 +15,26 @@ const SignInForm = () => {
   const navigate = useNavigate()
   const emailInputRef = useRef()
   const passwordInputRef = useRef()
-  const [error, setError] = useState(null)
+  const [checkbox, setCheckbox] = useState(false);
   const dispatch = useDispatch()
   useEffect(() =>{
 if(isLoggedIn) {
   navigate("/user")
-} else;
-if (isError) {
-
-}
-  
-
-
-  },[isLoggedIn])
+} 
+},[isLoggedIn])
   
   const handleForm = (event) => {
     event.preventDefault();
     const enteredEmail = emailInputRef.current.value
-    const enteredPassword = passwordInputRef.current.value
-    // if (
-    //     enteredEmail.trim().length === 0 || enteredPassword.trim().length === 0) 
-    //       {
-    //         setError({message:'Identifiants incorrects'});
-    //         return;
-    //         }
-            
+    const enteredPassword = passwordInputRef.current.value  
+  
     const credential = {
       email : enteredEmail,
       password : enteredPassword,
     }
     // envoi requête login
-    dispatch(postFetchLoginSuccess(credential))
-    
+    dispatch(postFetchLogin(credential, checkbox))    
   }
-
-  // | form.current.reset()
 
     return (
         <form onSubmit={handleForm}>
@@ -64,7 +47,7 @@ if (isError) {
           <input type="password" ref={passwordInputRef} id="password" name="password" />
         </div>
         <div className="input-remember">
-          <input type="checkbox" id="remember-me" /><label htmlFor="remember-me">Remember me</label>
+          <input type="checkbox" onChange={(e) => setCheckbox(e.target.checked)} id="remember-me" /><label htmlFor="remember-me">Remember me</label>
         </div>
         
         {isError? <span className="error-login">{errorMessage.message}</span> : ""  }

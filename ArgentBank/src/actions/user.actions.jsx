@@ -23,7 +23,6 @@ const fetchPostUserData = async () => {
 try {
     const userData = await fetchPostUserData()
     
-    
     dispatch(userDataActions.postUserData(userData.body))
 } catch(error){
     
