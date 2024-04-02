@@ -1,46 +1,30 @@
 import React from 'react';
-import '../../styles/main.css'
+import AccountEditUserPageItem from './AccountEditUserPageItem';
 
-
-const AccountEditUserPage = () => {
+const AccountItemEditUserPage = () => {
+    const dataAccounts = [
+        {
+            id:1,
+            argentBankChecking: 8349,
+            accountAmout:2082.79,
+        },
+        {
+            id:2,
+            argentBankChecking: 6712,
+            accountAmout:10928.42,
+        },
+        {
+            id:3,
+            argentBankChecking: 8349,
+            accountAmout:184.79,
+        }
+    ]
     return (
         <div>
             <h2 className='sr-only'>Accounts</h2>
-            <section className='account-edit-user'>
-                <div className='account-content-wrapper'>
-                    <h3 className="account-title-edit-user">Argent Bank Checking (x8349)</h3>
-                    <p className="account-amount-edit-user">$2,082.79</p>
-                    <p className="account-amount-description-edit-user">Available Balance</p>
-                </div>
-                <div className="account-content-wrapper-cta">
-                    <img src='./big-arrow-next.png' className='big-arrow-next' alt='flèche vers la droite'/>
-                   
-                </div>
-            </section>
-            <section className='account-edit-user'>
-                <div className='account-content-wrapper'>
-                    <h3 className="account-title-edit-user">Argent Bank Checking (x6712)</h3>
-                    <p className="account-amount-edit-user">$10,928.42</p>
-                    <p className="account-amount-description-edit-user">Available Balance</p>
-                </div>
-                <div className="account-content-wrapper-cta">
-                <img src='./big-arrow-next.png' className='big-arrow-next' alt='flèche vers la droite'/>
-                 
-                </div>
-            </section>
-            <section className='account-edit-user'>
-                <div className='account-content-wrapper'>
-                    <h3 className="account-title-edit-user">Argent Bank Checking (x8349)</h3>
-                    <p className="account-amount-edit-user">$184.79</p>
-                    <p className="account-amount-description-edit-user">Available Balance</p>
-                </div>
-                <div className="account-content-wrapper-cta">
-                <img src='./big-arrow-next.png' className='big-arrow-next' alt='flèche vers la droite'/>
-                    
-                </div>
-            </section>
+            {dataAccounts.map(({id, argentBankChecking, accountAmout}) => <AccountEditUserPageItem key={id} argentBankChecking={argentBankChecking} accountAmout={accountAmout}/>)}     
         </div>
     );
 };
 
-export default AccountEditUserPage;
+export default AccountItemEditUserPage;
