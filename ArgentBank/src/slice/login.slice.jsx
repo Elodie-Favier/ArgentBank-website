@@ -8,7 +8,6 @@ dataResponse:{
 },
 isLoggedIn:false,
 errorFetch: false,
-checkbox:false,
 }
 
 const loginSlice = createSlice({
@@ -22,11 +21,15 @@ const loginSlice = createSlice({
             if(state.dataResponse.token) {
                 state.isLoggedIn = true
             }
+            if(state.dataResponse.token) {
+                state.errorFetch = false
+            }
         },
         errorFetch(state,action){
             state.dataResponse = action.payload; 
             if(state.dataResponse.status === 400 )
             {state.errorFetch = true}
+            
         },
         logout(state) {
             state.dataResponse = {
